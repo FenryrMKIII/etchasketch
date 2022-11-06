@@ -29,27 +29,29 @@ function makeSketchPad(numRows, numCols) {
 }
 
 function pixelDiv(event){
-    console.log("I am pixlated")
     event.target.classList.toggle('grid-item-pixelated')
+}
+
+function checkUserInputs(isValid){
+    if (!isNaN(GRID_HEIGHT) && (!isNaN(GRID_WIDTH)) && (GRID_WIDTH<101) && (GRID_HEIGHT<101)) {
+        return true
+    }
+    else if (isNaN(GRID_HEIGHT) || isNaN(GRID_WIDTH)) {
+        alert('One of your input is not a number');
+    }
+    else if ((GRID_WIDTH>100 || GRID_WIDTH>100)) {
+        alert('Each grid dimension must be smaller than 100');
+    }
 }
 
 function askUserGridSize(){
     let isValid = false
 
     while (!isValid) {
-    GRID_WIDTH = prompt("Desired grid width");
-    GRID_HEIGHT = prompt("desired grid height");
+        GRID_WIDTH = prompt("Desired grid width");
+        GRID_HEIGHT = prompt("desired grid height");
 
-    if (!isNaN(GRID_HEIGHT) && (!isNaN(GRID_WIDTH)) && (GRID_WIDTH<101) && (GRID_HEIGHT<101)) {
-            isValid=true
-        }
-    else if (isNaN(GRID_HEIGHT) || isNaN(GRID_WIDTH)) {
-            alert('One of your input is not a number');
-        }
-    else if ((GRID_WIDTH>100 || GRID_WIDTH>100)) {
-        alert('Each grid dimension must be smaller than 100');
-    }
-
+        isValid = checkUserInputs(isValid)
     }
 
     removeChilds(document.getElementById("grid-container"));
