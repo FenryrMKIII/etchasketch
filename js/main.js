@@ -43,6 +43,13 @@ function askUserGridSize(){
     if (!isNaN(GRID_HEIGHT) && (!isNaN(GRID_WIDTH)) && (GRID_WIDTH<101) && (GRID_HEIGHT<101)) {
             isValid=true
         }
+    else if (isNaN(GRID_HEIGHT) || isNaN(GRID_WIDTH)) {
+            alert('One of your input is not a number');
+        }
+    else if ((GRID_WIDTH>100 || GRID_WIDTH>100)) {
+        alert('Each grid dimension must be smaller than 100');
+    }
+
     }
 
     removeChilds(document.getElementById("grid-container"));
