@@ -1,0 +1,28 @@
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+#main-container{
+
+}
+
+#grid-container {
+    width:960px;
+    height:960px;
+    display: grid;
+    grid-gap: 0fr;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.grid-item {
+    padding: 0fr;
+    border: 0px solid #ddd;
+    text-align: center;
+}
+
+.grid-item-pixelated {
+    background-color: black;
+}
+
